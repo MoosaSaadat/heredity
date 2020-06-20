@@ -1,0 +1,4 @@
+# Exclude virtual environment, vscode and pycahce
+env/
+.vscode/
+__pycache__/
