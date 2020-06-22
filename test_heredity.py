@@ -55,6 +55,32 @@ class TestHeredity(unittest.TestCase):
             },
         )
 
+    def test_normalize(self):
+
+        probabilities = {
+            "Harry": {"gene": {2: 5, 1: 4, 0: 1}, "trait": {True: 1, False: 0}},
+            "James": {"gene": {2: 0.5, 1: 0.4, 0: 0.1}, "trait": {True: 0, False: 0.5}},
+            "Lilly": {"gene": {2: 3, 1: 1, 0: 1}, "trait": {True: 0, False: 1}},
+        }
+        hrd.normalize(probabilities)
+        self.assertEqual(
+            probabilities,
+            {
+                "Harry": {
+                    "gene": {2: 0.5, 1: 0.4, 0: 0.1},
+                    "trait": {True: 1, False: 0},
+                },
+                "James": {
+                    "gene": {2: 0.5, 1: 0.4, 0: 0.1},
+                    "trait": {True: 0, False: 1},
+                },
+                "Lilly": {
+                    "gene": {2: 0.6, 1: 0.2, 0: 0.2},
+                    "trait": {True: 0, False: 1},
+                },
+            },
+        )
+
 
 if __name__ == "__main__":
     unittest.main()
