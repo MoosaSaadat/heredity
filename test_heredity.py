@@ -8,28 +8,28 @@ class TestHeredity(unittest.TestCase):
         # One gene
         people = hrd.load_data("data/family0.csv")
         one_gene = {"Harry"}
-        two_gene = {"James"}
+        two_genes = {"James"}
         have_trait = {"James"}
         self.assertAlmostEqual(
-            hrd.joint_probability(people, one_gene, two_gene, have_trait), 0.00266, 5,
+            hrd.joint_probability(people, one_gene, two_genes, have_trait), 0.00266, 5,
         )
 
         # No genes
         one_gene = {}
-        two_gene = {"James"}
+        two_genes = {"James"}
         have_trait = {"James"}
         self.assertAlmostEqual(
-            hrd.joint_probability(people, one_gene, two_gene, have_trait),
+            hrd.joint_probability(people, one_gene, two_genes, have_trait),
             0.000060546,
             5,
         )
 
         # Two genes
         one_gene = {}
-        two_gene = {"James", "Harry"}
+        two_genes = {"James", "Harry"}
         have_trait = {"James"}
         self.assertAlmostEqual(
-            hrd.joint_probability(people, one_gene, two_gene, have_trait),
+            hrd.joint_probability(people, one_gene, two_genes, have_trait),
             0.000021405,
             5,
         )
