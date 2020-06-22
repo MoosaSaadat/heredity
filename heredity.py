@@ -225,17 +225,12 @@ def normalize(probabilities):
     for person in probabilities:
 
         traitSum = sum(probabilities[person]["trait"].values())
-        print(probabilities[person]["trait"])
         for trait in probabilities[person]["trait"]:
             probabilities[person]["trait"][trait] /= traitSum
-        print(probabilities[person]["trait"])
 
         geneSum = sum(probabilities[person]["gene"].values())
-        print(probabilities[person]["gene"])
         for gene in probabilities[person]["gene"]:
             probabilities[person]["gene"][gene] /= geneSum
-        print(probabilities[person]["gene"])
-        print()
 
 
 if __name__ == "__main__":
